@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>oc</Title>
+			<Shortcut>oc</Shortcut>
+			<Description>readonly ObservableCollection</Description>
+			<Author>dequehead</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Collection element type</ToolTip>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>property</ID>
+					<ToolTip>Property name</ToolTip>
+					<Default>Property</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[private readonly ObservableCollection<$type$> _$property$ = new ObservableCollection<$type$>();
+		public ObservableCollection<$type$> $property$ { get { return _$property$; } }
+$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>dp2</Title>
+            <Shortcut>dp2</Shortcut>
+            <Description>Dependency property with change handler</Description>
+            <Author>dequehead</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property Type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property Name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal Editable="false">
+                    <ID>ownerclass</ID>
+					<Function>ClassName()</Function>
+                    <Default>ownerclass</Default>
+                </Literal>
+                <Literal>
+                    <ID>code</ID>
+                    <ToolTip>Change handler code</ToolTip>
+                    <Default>change handler code</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[public $type$ $property$ { get { return ($type$)GetValue($property$Property); } set { SetValue($property$Property, value); } }
+		public static readonly DependencyProperty $property$Property = DependencyProperty.Register("$property$", typeof($type$), typeof($ownerclass$), new PropertyMetadata(default($type$), (s, e) =>
+		{
+			var d = s as $ownerclass$;
+			var new_value = ($type$)e.NewValue;
+			
+			$code$
+		}));
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
